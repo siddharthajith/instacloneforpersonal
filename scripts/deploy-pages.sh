@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OWNER="siddharthajith2009"
+OWNER="siddharthajith"
 REPO="instacloneforpersonal"
 REMOTE="https://github.com/${OWNER}/${REPO}.git"
 
