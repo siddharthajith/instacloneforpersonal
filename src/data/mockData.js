@@ -1,3 +1,5 @@
+import kunalAvatar from '../assets/kunal-avatar.jpeg'
+
 const HOUR = 3600000
 const DAY = 86400000
 const now = Date.now()
@@ -25,6 +27,22 @@ export const currentUser = {
   pronouns: 'he/him',
   followers: 1284,
   following: 562,
+}
+
+// Accounts unlocked by signing in with a specific email address
+export const accountsByEmail = {
+  'siddharthajith2009@gmail.com': {
+    id: 'u0',
+    username: 'kunaliscool2009',
+    fullName: 'Kunal Bhatia',
+    avatar: kunalAvatar,
+    verified: false,
+    bio: 'Building things for the web. Coffee first, code second.\nDubai · always chasing golden hour',
+    website: '',
+    pronouns: 'he/him',
+    followers: 1284,
+    following: 562,
+  },
 }
 
 export const users = [

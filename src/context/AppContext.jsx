@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react'
 import {
   currentUser as baseUser,
+  accountsByEmail,
   notifications as baseNotifications,
   conversations as baseConversations,
   stories as baseStories,
@@ -42,6 +43,22 @@ export function AppProvider({ children }) {
   const [savedReels, setSavedReels] = usePersistedState('gl.reelSaves', [])
   // Not persisted: uploaded media uses blob object URLs which don't survive a refresh
   const [createdPosts, setCreatedPosts] = useState([])
+
+  // Keep the shared mock-data record for the signed-in user ('u0') in sync with
+  // the active profile so places that resolve users by id (comments, messages)
+  // show the right name and avatar.
+  useEffect(() => {
+    Object.assign(baseUser, profile)
+  }, [profile])
+
+  const login = useCallback(
+    (identity) => {
+      const account = accountsByEmail[(identity || '').trim().toLowerCase()]
+      if (account) setProfile(account)
+      setIsAuthed(true)
+    },
+    [setProfile, setIsAuthed],
+  )
 
   const toggleIn = (setter, id) =>
     setter((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
@@ -112,7 +129,7 @@ export function AppProvider({ children }) {
   const value = useMemo(
     () => ({
       isAuthed,
-      login: () => setIsAuthed(true),
+      login,
       logout: () => setIsAuthed(false),
       profile,
       setProfile,
@@ -149,7 +166,7 @@ export function AppProvider({ children }) {
     [
       isAuthed, profile, likedPosts, savedPosts, followed, userComments, viewedStories,
       readNotifications, sentMessages, recentSearches, likedReels, savedReels, createdPosts,
-      setIsAuthed, setProfile, toggleLike, likePost, toggleSave, toggleFollow, addComment,
+      login, setIsAuthed, setProfile, toggleLike, likePost, toggleSave, toggleFollow, addComment,
       deleteComment, markStoryViewed, markNotificationRead, markAllNotificationsRead,
       sendMessage, addRecentSearch, setRecentSearches, toggleReelLike, toggleReelSave, addCreatedPost,
     ],

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 OWNER="siddharthajith2009"
-REPO="${OWNER}.github.io"
+REPO="instacloneforpersonal"
 REMOTE="https://github.com/${OWNER}/${REPO}.git"
 
 echo "→ Checking GitHub account…"
@@ -35,7 +35,7 @@ git push -u origin main
 
 echo ""
 echo "Done. Site will be live at:"
-echo "  https://${OWNER}.github.io"
+echo "  https://${OWNER}.github.io/${REPO}/"
 echo ""
 echo "Track the deploy:"
 echo "  gh run list --repo ${OWNER}/${REPO} --workflow deploy.yml"

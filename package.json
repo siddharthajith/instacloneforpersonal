@@ -2,7 +2,7 @@
   "name": "glimpse",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://siddharthajith2009.github.io",
+  "homepage": "https://siddharthajith2009.github.io/instacloneforpersonal",
   "type": "module",
   "scripts": {
     "dev": "vite",
