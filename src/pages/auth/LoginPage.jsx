@@ -23,7 +23,7 @@ export default function LoginPage() {
     if (Object.keys(errs).length > 0) return
     setSubmitting(true)
     setTimeout(() => {
-      login(form.identity)
+      login()
       navigate('/')
     }, 700)
   }

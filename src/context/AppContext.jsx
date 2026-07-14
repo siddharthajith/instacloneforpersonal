@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react'
 import {
   currentUser as baseUser,
-  accountsByEmail,
   notifications as baseNotifications,
   conversations as baseConversations,
   stories as baseStories,
@@ -51,14 +50,10 @@ export function AppProvider({ children }) {
     Object.assign(baseUser, profile)
   }, [profile])
 
-  const login = useCallback(
-    (identity) => {
-      const account = accountsByEmail[(identity || '').trim().toLowerCase()]
-      if (account) setProfile(account)
-      setIsAuthed(true)
-    },
-    [setProfile, setIsAuthed],
-  )
+  const login = useCallback(() => {
+    setProfile(baseUser)
+    setIsAuthed(true)
+  }, [setProfile, setIsAuthed])
 
   const toggleIn = (setter, id) =>
     setter((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
