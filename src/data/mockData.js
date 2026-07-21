@@ -6,6 +6,7 @@ const now = Date.now()
 
 const img = (seed, w = 1080, h = 1080) => `https://picsum.photos/seed/${seed}/${w}/${h}`
 const avatar = (n) => `https://i.pravatar.cc/300?img=${n}`
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
 const VIDEOS = {
   bunny: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -14,6 +15,7 @@ const VIDEOS = {
   joyrides: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
   blazes: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
   meltdowns: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+  idris: asset('videos/IdrisVideo1.mp4'),
 }
 
 export const currentUser = {
@@ -275,7 +277,26 @@ export const posts = [
 ]
 
 // My own posts for the profile grid
-export const myPosts = []
+export const myPosts = [
+  {
+    id: 'mp-idris-1',
+    userId: 'u0',
+    type: 'video',
+    media: [{
+      type: 'video',
+      src: VIDEOS.idris,
+      poster: asset('videos/IdrisVideo1-thumb.jpg'),
+    }],
+    aspect: '4/5',
+    location: '',
+    caption: 'IdrisVideo1',
+    hashtags: [],
+    likes: 94,
+    timestamp: now - 3 * DAY,
+    comments: [],
+    totalComments: 0,
+  },
+]
 
 export const allPosts = [...posts, ...myPosts]
 export const getPost = (id) => allPosts.find((p) => p.id === id)
