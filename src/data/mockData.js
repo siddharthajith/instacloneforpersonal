@@ -44,6 +44,17 @@ export const users = [
   { id: 'u10', username: 'sam.frames', fullName: 'Sam Whitaker', avatar: avatar(33), verified: false, bio: 'Filmmaker. Frames from things I shoot.', website: 'samframes.co', followers: 15800, following: 267 },
   { id: 'u11', username: 'lucia.bakes', fullName: 'Lucía Moreno', avatar: avatar(20), verified: false, bio: 'Sourdough evangelist. Madrid.', website: '', followers: 7340, following: 529 },
   { id: 'u12', username: 'dev.on.wheels', fullName: 'Devon Clarke', avatar: avatar(65), verified: false, bio: 'Skateboarding + software. Both involve falling.', website: '', followers: 2190, following: 610 },
+  {
+    id: 'u-idris',
+    username: 'idrisali',
+    fullName: 'Idris Ali',
+    avatar: asset('videos/IdrisVideo1-thumb.jpg'),
+    verified: false,
+    bio: 'Creating and sharing moments.',
+    website: '',
+    followers: 1840,
+    following: 312,
+  },
 ]
 
 export const allUsers = [currentUser, ...users]
@@ -276,11 +287,14 @@ export const posts = [
   },
 ]
 
-// My own posts for the profile grid
-export const myPosts = [
+// My own posts for the profile grid (signed-in account stays empty unless the user uploads)
+export const myPosts = []
+
+// Featured Idris clip for the Glimpse feed (5th post)
+export const idrisFeedPosts = [
   {
     id: 'mp-idris-1',
-    userId: 'u0',
+    userId: 'u-idris',
     type: 'video',
     media: [{
       type: 'video',
@@ -298,7 +312,7 @@ export const myPosts = [
   },
 ]
 
-export const allPosts = [...posts, ...myPosts]
+export const allPosts = [...posts, ...myPosts, ...idrisFeedPosts]
 export const getPost = (id) => allPosts.find((p) => p.id === id)
 
 export const explorePosts = [
@@ -322,6 +336,18 @@ export const reels = [
   { id: 'r2', userId: 'u6', video: VIDEOS.bunny, poster: img('reel-2', 720, 1280), caption: 'Ninety seconds of arctic light after eleven hours of waiting', audio: 'Northern Drift · Ambient Fields', likes: 128400, comments: 2140, shares: 5620, timestamp: now - 12 * HOUR },
   { id: 'r3', userId: 'u12', video: VIDEOS.blazes, poster: img('reel-3', 720, 1280), caption: 'Finally landed it on camera. Only took forty tries.', audio: 'Kickflip Theory · The Copers', likes: 8930, comments: 341, shares: 208, timestamp: now - DAY },
   { id: 'r4', userId: 'u4', video: VIDEOS.fun, poster: img('reel-4', 720, 1280), caption: '60-second cacio e pepe. Watch the emulsion, that is the whole trick.', audio: 'Original audio · tomas.eats', likes: 210300, comments: 4820, shares: 15200, timestamp: now - DAY - 6 * HOUR },
+  {
+    id: 'r-idris-1',
+    userId: 'u-idris',
+    video: VIDEOS.idris,
+    poster: asset('videos/IdrisVideo1-thumb.jpg'),
+    caption: 'IdrisVideo1',
+    audio: 'Original audio · idrisali',
+    likes: 94,
+    comments: 12,
+    shares: 8,
+    timestamp: now - DAY - 2 * HOUR,
+  },
   { id: 'r5', userId: 'u1', video: VIDEOS.joyrides, poster: img('reel-5', 720, 1280), caption: 'Faroe Islands in motion. Sound on for the wind (or not, it was loud)', audio: 'Fjord Lines · Kaia Sund', likes: 67800, comments: 1130, shares: 3400, timestamp: now - 2 * DAY },
   { id: 'r6', userId: 'u2', video: VIDEOS.meltdowns, poster: img('reel-6', 720, 1280), caption: 'Two weeks of mural work in twenty seconds', audio: 'Paint It Forward · Streetlight Collective', likes: 32100, comments: 760, shares: 1890, timestamp: now - 3 * DAY },
 ]

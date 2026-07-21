@@ -10,6 +10,7 @@ import { formatCount } from '../utils/format.js'
 function ReelItem({ reel, muted, onToggleMute }) {
   const { likedReels, toggleReelLike, savedReels, toggleReelSave, followed, toggleFollow } = useApp()
   const user = getUser(reel.userId)
+  if (!user) return null
   const liked = likedReels.includes(reel.id)
   const saved = savedReels.includes(reel.id)
   const videoRef = useRef(null)

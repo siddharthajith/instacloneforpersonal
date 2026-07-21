@@ -4,7 +4,7 @@ import PostCard from '../components/feed/PostCard.jsx'
 import RightSidebar from '../components/layout/RightSidebar.jsx'
 import { PostSkeleton } from '../components/ui/Skeleton.jsx'
 import { useApp } from '../context/AppContext.jsx'
-import { posts, myPosts } from '../data/mockData.js'
+import { posts, idrisFeedPosts } from '../data/mockData.js'
 
 const tabs = [
   { id: 'foryou', label: 'For you' },
@@ -23,10 +23,10 @@ export default function HomePage() {
 
   const feedPosts =
     tab === 'following' ? posts.filter((p) => followed.includes(p.userId)) : posts
-  // Place account posts (IdrisVideo1) as the 5th item in the For you feed
+  // Place IdrisVideo1 as the 5th item in the For you feed
   const combined =
     tab === 'foryou'
-      ? [...createdPosts, ...feedPosts.slice(0, 4), ...myPosts, ...feedPosts.slice(4)]
+      ? [...createdPosts, ...feedPosts.slice(0, 4), ...idrisFeedPosts, ...feedPosts.slice(4)]
       : feedPosts
 
   return (
