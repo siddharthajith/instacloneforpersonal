@@ -203,6 +203,82 @@ const paths = {
   ),
   trash: <path d="M4.5 6.5h15M9.5 6V4.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V6M6.5 6.5l.8 12.6a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12.6M10 10.5v6M14 10.5v6" />,
   pencil: <path d="m14.5 5.5 4 4L8 20l-4.8.8L4 16 14.5 5.5Zm2-2 1.4-1.4a1.5 1.5 0 0 1 2.1 0l1.9 1.9a1.5 1.5 0 0 1 0 2.1L20.5 7.5l-4-4Z" />,
+  thumbsUp: <path d="M7.5 10.5V20M7.5 10.5 4.5 10.5a1.5 1.5 0 0 0-1.5 1.5V17a3 3 0 0 0 3 3h8.2a2 2 0 0 0 2-1.6l1.3-6.5a2 2 0 0 0-2-2.4H12l1.5-6.5a2 2 0 0 0-2-2.2l-4 2.2Z" />,
+  thumbsDown: <path d="M16.5 13.5V4M16.5 13.5 19.5 13.5a1.5 1.5 0 0 1 1.5 1.5V7a3 3 0 0 0-3-3h-8.2a2 2 0 0 0-2 1.6l-1.3 6.5a2 2 0 0 0 2 2.4H12l-1.5 6.5a2 2 0 0 0 2 2.2l4-2.2Z" />,
+  list: (
+    <>
+      <path d="M8 6h13M8 12h13M8 18h13" />
+      <circle cx="4" cy="6" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="4" cy="12" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="4" cy="18" r="1.2" fill="currentColor" stroke="none" />
+    </>
+  ),
+  theater: (
+    <>
+      <rect x="2" y="7" width="20" height="10" rx="1.5" />
+      <path d="M2 10h20M6 7V5M18 7V5" />
+    </>
+  ),
+  pip: (
+    <>
+      <rect x="3" y="5" width="14" height="10" rx="1.5" />
+      <rect x="13" y="11" width="8" height="6" rx="1" />
+    </>
+  ),
+  captions: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M7 14h4M13 14h4M7 17h10" />
+    </>
+  ),
+  fullscreen: (
+    <>
+      <path d="M4 9V4.5h4.5M15.5 4.5H20V9M20 15v4.5h-4.5M8.5 19.5H4V15" />
+    </>
+  ),
+  shuffle: <path d="M16 3.5 20.5 8 16 12.5M20.5 8H14a4 4 0 0 0-4 4v0M8 20.5 3.5 16 8 11.5M3.5 16H10a4 4 0 0 0 4-4v0" />,
+  help: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.5 9.2a2.8 2.8 0 0 1 5 1.7c0 2-2.5 2.5-2.5 4.3" />
+      <circle cx="12" cy="17.2" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  feedback: <path d="M4 5.5h16v11H8l-4 3.5V5.5Z" />,
+  film: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M7 5v14M17 5v14M3 10h18M3 14h18" />
+    </>
+  ),
+  queue: (
+    <>
+      <rect x="4" y="4" width="16" height="4" rx="1" />
+      <rect x="4" y="10" width="16" height="4" rx="1" />
+      <rect x="4" y="16" width="10" height="4" rx="1" />
+    </>
+  ),
+  download: <path d="M12 4v10m0 0 3.5-3.5M12 14l-3.5-3.5M5 18.5h14" />,
+  library: (
+    <>
+      <path d="M5 4.5h3v15H5a1.5 1.5 0 0 1-1.5-1.5v-12A1.5 1.5 0 0 1 5 4.5Z" />
+      <path d="M8 4.5h11.5A1.5 1.5 0 0 1 21 6v12.5a1.5 1.5 0 0 1-1.5 1.5H8V4.5Z" />
+      <path d="M12 9h5M12 12.5h5" />
+    </>
+  ),
+  history: (
+    <>
+      <path d="M3.5 12a8.5 8.5 0 1 0 2.5-6" />
+      <path d="M3.5 7.5V12h4.5" />
+      <path d="M12 8v4.5l3 1.5" />
+    </>
+  ),
+  shorts: (
+    <>
+      <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
+      <path d="m11 9.5 4 2.5-4 2.5v-5Z" fill="currentColor" stroke="none" />
+    </>
+  ),
 }
 
 export default function Icon({ name, size = 24, filled = false, className = '', strokeWidth = 1.7, ...rest }) {

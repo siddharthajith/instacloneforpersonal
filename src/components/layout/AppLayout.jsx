@@ -18,7 +18,7 @@ export default function AppLayout() {
   useEffect(() => {
     if (location.pathname === '/create') {
       setCreateOpen(true)
-      navigate('/', { replace: true })
+      navigate('/glimpse', { replace: true })
     }
   }, [location.pathname, navigate])
 

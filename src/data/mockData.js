@@ -275,14 +275,7 @@ export const posts = [
 ]
 
 // My own posts for the profile grid
-export const myPosts = [
-  { id: 'mp1', userId: 'u0', type: 'image', media: [{ type: 'image', src: img('my-coffee', 1080, 1080) }], aspect: '1/1', location: 'Dubai, UAE', caption: 'Third coffee, first good idea.', hashtags: ['#coffee'], likes: 214, timestamp: now - 2 * DAY, comments: [], totalComments: 12 },
-  { id: 'mp2', userId: 'u0', type: 'image', media: [{ type: 'image', src: img('my-desert', 1080, 1080) }], aspect: '1/1', location: 'Al Qudra, Dubai', caption: 'Desert run before the heat won.', hashtags: ['#dubai'], likes: 342, timestamp: now - 6 * DAY, comments: [], totalComments: 21 },
-  { id: 'mp3', userId: 'u0', type: 'carousel', media: [{ type: 'image', src: img('my-city-1', 1080, 1080) }, { type: 'image', src: img('my-city-2', 1080, 1080) }], aspect: '1/1', location: 'Downtown Dubai', caption: 'City walk, camera in hand.', hashtags: ['#streetphotography'], likes: 189, timestamp: now - 9 * DAY, comments: [], totalComments: 8 },
-  { id: 'mp4', userId: 'u0', type: 'image', media: [{ type: 'image', src: img('my-food', 1080, 1080) }], aspect: '1/1', location: '', caption: 'Weekend cooking experiments continue.', hashtags: [], likes: 156, timestamp: now - 12 * DAY, comments: [], totalComments: 5 },
-  { id: 'mp5', userId: 'u0', type: 'image', media: [{ type: 'image', src: img('my-beach', 1080, 1080) }], aspect: '1/1', location: 'Kite Beach', caption: 'Golden hour delivered again.', hashtags: ['#goldenhour'], likes: 428, timestamp: now - 15 * DAY, comments: [], totalComments: 19 },
-  { id: 'mp6', userId: 'u0', type: 'image', media: [{ type: 'image', src: img('my-code', 1080, 1080) }], aspect: '1/1', location: '', caption: 'Shipped the thing. Sleep now.', hashtags: ['#buildinpublic'], likes: 267, timestamp: now - 20 * DAY, comments: [], totalComments: 14 },
-]
+export const myPosts = []
 
 export const allPosts = [...posts, ...myPosts]
 export const getPost = (id) => allPosts.find((p) => p.id === id)

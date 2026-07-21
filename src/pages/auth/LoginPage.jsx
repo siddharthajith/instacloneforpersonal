@@ -16,15 +16,17 @@ export default function LoginPage() {
   const submit = (e) => {
     e.preventDefault()
     const errs = {}
-    if (!form.identity.trim()) errs.identity = 'Enter your username or email.'
+    const username = form.identity.trim()
+    if (!username) errs.identity = 'Enter your username.'
+    else if (username !== 'abcd') errs.identity = 'Incorrect username.'
     if (!form.password) errs.password = 'Enter your password.'
-    else if (form.password.length < 6) errs.password = 'Password must be at least 6 characters.'
+    else if (form.password !== '1234') errs.password = 'Incorrect password.'
     setErrors(errs)
     if (Object.keys(errs).length > 0) return
     setSubmitting(true)
     setTimeout(() => {
       login()
-      navigate('/')
+      navigate('/glimpse')
     }, 700)
   }
 
@@ -39,7 +41,7 @@ export default function LoginPage() {
     >
       <form onSubmit={submit} noValidate className="space-y-4">
         <div>
-          <label htmlFor="li-identity" className={authLabel}>Username or email</label>
+          <label htmlFor="li-identity" className={authLabel}>Username</label>
           <input
             id="li-identity"
             type="text"

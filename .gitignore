@@ -21,4 +21,8 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+# Large source media — compressed copies live in public/videos/
+IdrisVideo1.mov
+NEA Project Analysis Section.jpeg
+src/IMG_2944.jpg
+

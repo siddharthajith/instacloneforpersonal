@@ -14,7 +14,7 @@ export default function PostPage() {
       <div className="flex flex-col items-center justify-center py-32 text-center px-4">
         <h1 className="text-xl font-bold">Post not found</h1>
         <p className="text-sm text-ink-faint mt-2 mb-6">This post may have been removed or the link is incorrect.</p>
-        <Link to="/"><Button>Back to home</Button></Link>
+        <Link to="/glimpse"><Button>Back to home</Button></Link>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import { NavLink, Link } from 'react-router-dom'
 import Icon from '../ui/Icon.jsx'
 import { WordMark } from '../ui/Logo.jsx'
 import Avatar from '../ui/Avatar.jsx'
+import { PlatformSwitcherButton } from '../ui/PlatformSwitcher.jsx'
 import { useApp } from '../../context/AppContext.jsx'
 
 export function MobileTopBar() {
@@ -11,10 +12,11 @@ export function MobileTopBar() {
 
   return (
     <header className="md:hidden fixed top-0 inset-x-0 z-30 h-14 bg-card/95 backdrop-blur border-b border-line flex items-center justify-between px-4">
-      <Link to="/" aria-label="Glimpse home">
+      <Link to="/glimpse" aria-label="Glimpse home">
         <WordMark className="text-[22px]" />
       </Link>
       <div className="flex items-center gap-1">
+        <PlatformSwitcherButton platform="glimpse" className="!px-2 !py-1.5 text-xs" />
         <NavLink to="/notifications" aria-label="Notifications" className="relative p-2 text-ink">
           {({ isActive }) => (
             <>
@@ -48,7 +50,7 @@ export function MobileBottomNav({ onOpenCreate }) {
       aria-label="Primary"
       className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-card border-t border-line flex pb-[env(safe-area-inset-bottom)]"
     >
-      <NavLink to="/" end className={cls} aria-label="Home">
+      <NavLink to="/glimpse" end className={cls} aria-label="Home">
         {({ isActive }) => <Icon name="home" size={26} filled={isActive} strokeWidth={isActive ? 2.2 : 1.7} />}
       </NavLink>
       <NavLink to="/explore" className={cls} aria-label="Explore">

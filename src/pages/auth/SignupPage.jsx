@@ -28,7 +28,7 @@ export default function SignupPage() {
     setSubmitting(true)
     setTimeout(() => {
       login()
-      navigate('/')
+      navigate('/glimpse')
     }, 700)
   }
 

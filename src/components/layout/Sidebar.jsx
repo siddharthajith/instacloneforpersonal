@@ -3,10 +3,11 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import Icon from '../ui/Icon.jsx'
 import { LogoMark, WordMark } from '../ui/Logo.jsx'
 import Avatar from '../ui/Avatar.jsx'
+import { PlatformSwitcherButton, PlatformSwitcherMenu } from '../ui/PlatformSwitcher.jsx'
 import { useApp } from '../../context/AppContext.jsx'
 
 const navItems = [
-  { to: '/', icon: 'home', label: 'Home', end: true },
+  { to: '/glimpse', icon: 'home', label: 'Home', end: true },
   { key: 'search', icon: 'search', label: 'Search' },
   { to: '/explore', icon: 'compass', label: 'Explore' },
   { to: '/reels', icon: 'clips', label: 'Clips' },
@@ -52,12 +53,16 @@ export default function Sidebar({ onOpenSearch, onOpenCreate, searchOpen }) {
       aria-label="Primary"
       className="hidden md:flex fixed inset-y-0 left-0 z-30 w-[72px] xl:w-60 flex-col border-r border-line bg-card px-3 py-5"
     >
-      <NavLink to="/" className="flex items-center gap-2.5 px-2 mb-7" aria-label="Glimpse home">
+      <NavLink to="/glimpse" className="flex items-center gap-2.5 px-2 mb-5" aria-label="Glimpse home">
         <LogoMark size={34} />
         <span className="hidden xl:block">
           <WordMark className="text-[24px]" />
         </span>
       </NavLink>
+
+      <div className="px-2 mb-4 flex justify-center xl:justify-start">
+        <PlatformSwitcherButton platform="glimpse" className="w-full xl:w-full justify-center text-xs px-2" />
+      </div>
 
       <ul className="flex flex-col gap-1 flex-1">
         {navItems.map((item) => {
@@ -112,20 +117,8 @@ export default function Sidebar({ onOpenSearch, onOpenCreate, searchOpen }) {
 
       <div className="relative flex flex-col gap-1" ref={moreRef}>
         {moreOpen && (
-          <div className="absolute bottom-full mb-2 left-0 w-56 bg-card border border-line rounded-xl shadow-lg py-1.5 animate-scale-in z-10">
-            <button type="button" onClick={() => { navigate('/settings') }} className="flex items-center gap-3 w-full px-4 py-2.5 text-sm hover:bg-stone-50">
-              <Icon name="settings" size={18} /> Settings
-            </button>
-            <button type="button" onClick={() => { navigate('/notifications') }} className="flex items-center gap-3 w-full px-4 py-2.5 text-sm hover:bg-stone-50">
-              <Icon name="clock" size={18} /> Your activity
-            </button>
-            <button type="button" onClick={() => { navigate(`/profile/${profile.username}?tab=saved`) }} className="flex items-center gap-3 w-full px-4 py-2.5 text-sm hover:bg-stone-50">
-              <Icon name="bookmark" size={18} /> Saved
-            </button>
-            <div className="h-px bg-line my-1.5" />
-            <button type="button" onClick={() => { logout(); navigate('/login') }} className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-danger hover:bg-red-50">
-              <Icon name="logout" size={18} /> Log out
-            </button>
+          <div className="absolute bottom-full mb-2 left-0 w-56 bg-card border border-line rounded-xl shadow-lg animate-scale-in z-10">
+            <PlatformSwitcherMenu current="glimpse" onClose={() => setMoreOpen(false)} />
           </div>
         )}
         <NavLink to="/settings" aria-label="Settings" className="block">
